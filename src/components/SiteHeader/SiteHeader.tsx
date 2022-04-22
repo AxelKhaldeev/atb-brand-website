@@ -33,6 +33,7 @@ export default function SiteHeader() {
                 height={90}
               />
             </Box>
+
             <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'flex', md: 'flex' } }}>
               {pages.map((page, i) => (
                 <Button
@@ -46,6 +47,7 @@ export default function SiteHeader() {
                 </Button>
               ))}
             </Box>
+
             <Box sx={{ flexGrow: 1, justifyContent: 'end', display: { xs: 'none', md: 'flex' } }}>
               <Link href="tel:+7 (495) 181-06-86" underline="none">
                 <Typography variant="h6">+7 (495) 181-06-86</Typography>
