@@ -1,6 +1,8 @@
 import * as React from "react"
 
-import { StaticImage } from "gatsby-plugin-image"
+// import { StaticImage } from "gatsby-plugin-image"
+import { Helmet } from "react-helmet";
+
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -31,6 +33,10 @@ const getRowCellSx = (row) => {
 const CatalogPage = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Бренд «АТВ» – Каталог</title>
+      </Helmet>
+
       <Container maxWidth="md">
         <Typography variant="h2" component="h2" sx={{ my: 2, fontWeight: 'bold', color: 'primary.main' }}>
           Каталог продукции

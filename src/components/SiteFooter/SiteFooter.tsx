@@ -20,12 +20,12 @@ export default function SiteFooter() {
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
         >
-          <Box sx={{ my: 2, flexGrow: 1, display: 'flex' }}>
-            <Paper elevation={3}>
+          <Box sx={{ my: 2, flexGrow: 1, display: 'flex', alignItems: 'center' }}>
+            <Paper elevation={3} sx={{ p: 2 }}>
               <StaticImage
-                src='../../images/atb_logo.png'
+                src='../../images/atb_logo.jpeg'
                 alt='ATB logo'
-                height={90}
+                height={70}
               />
             </Paper>
           </Box>

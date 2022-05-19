@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 
 import { Link as GatsbyLink } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
@@ -10,7 +11,14 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 
 const pages = [
   { title: 'Главная', to: '/' },
@@ -20,27 +28,70 @@ const pages = [
 ];
 
 export default function SiteHeader() {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const mobileMenuList = () => (
+    <Box
+      sx={{ width: '250px' }}
+      role="presentation"
+      onClick={() => setMobileMenuOpen(false)}
+      onKeyDown={() => setMobileMenuOpen(false)}
+    >
+      <List>
+        {pages.map((page, i) => (
+          <ListItem key={page.title} disablePadding>
+            <ListItemButton
+              component={GatsbyLink}
+              to={page.to}
+            >
+              <ListItemText primary={page.title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+
   return (
     <>
       <AppBar sx={{ background: 'white', color: 'black' }}>
         <Container maxWidth="lg">
           <Toolbar disableGutters>
-            {/* <Box sx={{ bgcolor: '#cfe8fc', height: '150px' }} /> */}
-            <Box sx={{ flexGrow: 1, display: 'flex' }}>
+
+            <Box sx={{ flexGrow: 1, position: 'absolute', display: { xs: 'flex', md: 'none' }}}>
+              <IconButton
+                aria-label="menu-burger"
+                onClick={() => setMobileMenuOpen(true)}
+              >
+                <MenuIcon color="primary" />
+              </IconButton>
+
+              <Drawer
+                anchor="left"
+                open={isMobileMenuOpen}
+                onClose={() => setMobileMenuOpen(false)}
+              >
+                {mobileMenuList()}
+              </Drawer>
+            </Box>
+
+
+
+            <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: { xs: 'center' } }}>
               <StaticImage
-                src='../../images/atb_logo.png'
+                src='../../images/atb_logo.jpeg'
                 alt='ATB logo'
-                height={90}
+                height={70}
               />
             </Box>
 
-            <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'flex', md: 'flex' } }}>
+            <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page, i) => (
                 <Button
                   key={page.title}
                   component={GatsbyLink}
                   to={page.to}
-                  // onClick={handleCloseNavMenu}
                   sx={{ my: 2, mx: 1, color: 'primary.main', display: 'block' }}
                 >
                   {page.title}

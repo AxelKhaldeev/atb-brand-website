@@ -1,7 +1,8 @@
 import * as React from "react"
 
 import { Link as GatsbyLink } from 'gatsby';
-import { StaticImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image";
+import { Helmet } from "react-helmet";
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -15,6 +16,9 @@ import Layout from "../components/Layout";
 const IndexPage = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Бренд «АТВ» – Главная</title>
+      </Helmet>
       <Container maxWidth="lg">
         <StaticImage
           src='../images/hero.jpg'

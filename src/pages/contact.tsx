@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { StaticImage } from "gatsby-plugin-image"
+import { Helmet } from "react-helmet";
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -17,6 +18,9 @@ import WorkHoursSnippet from '../components/WorkHoursSnippet';
 const ContactPage = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Бренд «АТВ» – Контакты</title>
+      </Helmet>
       <Container maxWidth="md">
         <Typography variant="h2" component="h2" sx={{ my: 2, fontWeight: 'bold', color: 'primary.main' }}>
           Контакты
