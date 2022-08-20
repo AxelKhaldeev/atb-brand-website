@@ -22,7 +22,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 const pages = [
   { title: 'Главная', to: '/' },
-  { title: 'Католаг', to: '/catalog' },
+  { title: 'Каталог', to: '/catalog' },
   { title: 'О нас', to: '/about' },
   { title:'Контакты', to: '/contact' },
 ];
@@ -100,8 +100,8 @@ export default function SiteHeader() {
             </Box>
 
             <Box sx={{ flexGrow: 1, justifyContent: 'end', display: { xs: 'none', md: 'flex' } }}>
-              <Link href="tel:+7 (495) 181-06-86" underline="none">
-                <Typography variant="h6">+7 (495) 181-06-86</Typography>
+              <Link href="tel:+7 (495) 181-12-45" underline="none">
+                <Typography variant="h6">+7 (495) 181-12-45</Typography>
               </Link>
             </Box>
           </Toolbar>
